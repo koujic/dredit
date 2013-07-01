@@ -67,6 +67,7 @@
 		9F7CDE5D15FA6A010057FC5E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7CDE5C15FA6A010057FC5E /* Security.framework */; };
 		9F7CDE5F15FA6A110057FC5E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F7CDE5E15FA6A110057FC5E /* SystemConfiguration.framework */; };
 		9F7CDE6215FA6EF80057FC5E /* DrEditUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F7CDE6115FA6EF80057FC5E /* DrEditUtilities.m */; };
+		EBF11B561781269700A6A306 /* SBJsonWriter_EnsureAsciiEx.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF11B551781269700A6A306 /* SBJsonWriter_EnsureAsciiEx.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -189,6 +190,8 @@
 		9F7CDE6015FA6EF80057FC5E /* DrEditUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrEditUtilities.h; sourceTree = "<group>"; };
 		9F7CDE6115FA6EF80057FC5E /* DrEditUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrEditUtilities.m; sourceTree = "<group>"; };
 		9F7CDE6A15FA933E0057FC5E /* DrEditFileEditDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrEditFileEditDelegate.h; sourceTree = "<group>"; };
+		EBF11B541781269600A6A306 /* SBJsonWriter_EnsureAsciiEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter_EnsureAsciiEx.h; path = "../../google-api-objectivec-client/Source/JSON/SBJsonWriter_EnsureAsciiEx.h"; sourceTree = "<group>"; };
+		EBF11B551781269700A6A306 /* SBJsonWriter_EnsureAsciiEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter_EnsureAsciiEx.m; path = "../../google-api-objectivec-client/Source/JSON/SBJsonWriter_EnsureAsciiEx.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +325,8 @@
 				9F7CDDD415FA687D0057FC5E /* SBJsonParser.m */,
 				9F7CDDD515FA687D0057FC5E /* SBJsonWriter.h */,
 				9F7CDDD615FA687D0057FC5E /* SBJsonWriter.m */,
+				EBF11B541781269600A6A306 /* SBJsonWriter_EnsureAsciiEx.h */,
+				EBF11B551781269700A6A306 /* SBJsonWriter_EnsureAsciiEx.m */,
 				9F7CDDD715FA687D0057FC5E /* GTMOAuth2Authentication.h */,
 				9F7CDDD815FA687D0057FC5E /* GTMOAuth2Authentication.m */,
 				9F7CDDD915FA687D0057FC5E /* GTMOAuth2SignIn.h */,
@@ -496,6 +501,7 @@
 				9F7CDE5A15FA69CB0057FC5E /* GTLQueryDrive.m in Sources */,
 				9F7CDE5B15FA69CB0057FC5E /* GTLServiceDrive.m in Sources */,
 				9F7CDE6215FA6EF80057FC5E /* DrEditUtilities.m in Sources */,
+				EBF11B561781269700A6A306 /* SBJsonWriter_EnsureAsciiEx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
