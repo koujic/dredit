@@ -52,7 +52,7 @@
  way you would expect.
  
  */
-@interface SBJsonWriter : SBJsonBase {
+@interface SBJsonWriter_EnsureAsciiEx : SBJsonBase {
 
 @private
     BOOL sortKeys, humanReadable;

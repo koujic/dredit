@@ -27,9 +27,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "SBJsonWriter.h"
+#import "SBJsonWriter_EnsureAsciiEx.h"
 
-@interface SBJsonWriter ()
+@interface SBJsonWriter_EnsureAsciiEx ()
 
 - (BOOL)appendValue:(id)fragment into:(NSMutableString*)json;
 - (BOOL)appendArray:(NSArray*)fragment into:(NSMutableString*)json;
@@ -40,7 +40,7 @@
 
 @end
 
-@implementation SBJsonWriter
+@implementation SBJsonWriter_EnsureAsciiEx
 
 @synthesize sortKeys;
 @synthesize humanReadable;
@@ -48,7 +48,7 @@
 static NSMutableCharacterSet *kEscapeChars;
 
 + (void)initialize {
-	kEscapeChars = [[NSMutableCharacterSet characterSetWithRange: NSMakeRange(0,32)] retain];
+  kEscapeChars = [[[NSCharacterSet characterSetWithRange: NSMakeRange(32,256 - 32)] invertedSet] mutableCopy];// retain];
 	[kEscapeChars addCharactersInString: @"\"\\"];
 }
 
@@ -220,7 +220,7 @@ static NSMutableCharacterSet *kEscapeChars;
                 case '\b':  [json appendString:@"\\b"];        break;
                 case '\f':  [json appendString:@"\\f"];        break;
                 default:    
-                    if (uc < 0x20) {
+                    if ((uc < 0x20)||(uc > 0xff)) {
                         [json appendFormat:@"\\u%04x", uc];
                     } else {
                         CFStringAppendCharacters((CFMutableStringRef)json, &uc, 1);
