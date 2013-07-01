@@ -18,6 +18,7 @@
 //
 
 #import "GTLJSONParser.h"
+#import "SBJsonWriter_EnsureAsciiEx.h"
 
 // We can assume NSJSONSerialization is present on Mac OS X 10.7 and iOS 5
 #if !defined(GTL_REQUIRES_NSJSONSERIALIZATION)
@@ -74,6 +75,15 @@
 + (NSData *)dataWithObject:(id)obj
              humanReadable:(BOOL)humanReadable
                      error:(NSError**)error {
+  // quick fix for ensure_ascii
+  SBJsonWriter_EnsureAsciiEx *asciiWriter = [[[SBJsonWriter_EnsureAsciiEx alloc] init] autorelease];
+  [asciiWriter setHumanReadable:humanReadable];
+  NSString *jsonStr = [asciiWriter stringWithObject:obj
+                                              error:error];
+  NSData *data = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+  return data;
+  
+  /***
   const NSUInteger kOpts = humanReadable ? (1UL << 0) : 0; // NSJSONWritingPrettyPrinted
 
 #if GTL_REQUIRES_NSJSONSERIALIZATION
@@ -104,6 +114,7 @@
     return data;
   }
 #endif
+   ***/
 }
 
 + (id)objectWithString:(NSString *)jsonStr
